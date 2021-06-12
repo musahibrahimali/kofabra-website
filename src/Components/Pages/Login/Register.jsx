@@ -1,5 +1,5 @@
 import React from 'react';
-import {loginImage} from "../../../assets/AssetExport";
+import { loginImage } from "../../../assets/AssetExport";
 import './styles/style.css';
 
 function Register(props) {
@@ -19,6 +19,10 @@ function Register(props) {
         setDisplayNameError,
         handleSignUp,
         handleSwitch,
+        userPhoneError,
+        setUserPhoneError,
+        setUserPhone,
+        userPhone,
     } = props;
 
     const handleDisplayNameOnChange = (event) => {
@@ -31,6 +35,11 @@ function Register(props) {
         event.preventDefault();
         setEmailError("");
         setEmail(event.target.value.trim());
+    }
+    const handleUserPhoneOnChange = (event) => {
+        event.preventDefault();
+        setUserPhoneError("");
+        setUserPhone(event.target.value);
     }
 
     const handlePasswordOnChange = (event) => {
@@ -46,7 +55,7 @@ function Register(props) {
             </div>
             <div className="content">
                 <div className="image">
-                    <img src={loginImage} alt="This is a graphic"/>
+                    <img src={loginImage} alt="This is a graphic" />
                 </div>
                 <div className="form">
                     <div className="form-group">
@@ -74,6 +83,20 @@ function Register(props) {
                         />
                         <p className="error-message">{emailError}</p>
                     </div>
+
+                    <div className="form-group">
+                        <label htmlFor="phone" className="form-label">Phone</label>
+                        <input
+                            type="text"
+                            name="phone"
+                            required
+                            placeholder="000 000 000 0"
+                            value={userPhone}
+                            onChange={handleUserPhoneOnChange}
+                        />
+                        <p className="error-message">{userPhoneError}</p>
+                    </div>
+
                     <div className="form-group">
                         <label htmlFor="password" className="form-label">Password</label>
                         <input

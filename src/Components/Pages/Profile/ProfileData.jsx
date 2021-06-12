@@ -1,19 +1,19 @@
-import { Image2, Image5, Image7, Image8 } from "../../../assets/AssetExport";
+import { Image3, Image5, Image10, Image11 } from "../../../assets/AssetExport";
 
 export const homeObjOne = {
   lightBg: false,
   lightText: true,
   lightTextDesc: true,
-  topLine: 'Exclusive Access',
-  headline: 'Unlimited Transactions with exclusive discounts',
+  topLine: 'GREAT THINGS AWAIT YOU',
+  headline: 'Enjoying our platform, leave a review',
   description: 'Get access to well trained, qualified and verified couriers all over the country with exclusive ' +
     'at the tap of a button. Here to serve you.',
-  buttonLabel: 'Get Started',
+  buttonLabel: 'Explore',
   buttonColor: 'blue',
   imgStart: '',
-  img: `${Image2}`,
+  img: `${Image10}`,
   alt: 'Credit Card',
-  url: "/sign-up",
+  url: "/landing-page",
 };
 
 export const homeObjTwo = {
@@ -29,37 +29,37 @@ export const homeObjTwo = {
   imgStart: '',
   img: `${Image5}`,
   alt: 'Vault',
-  url: "/about-page",
+  url: "/landing-page",
 };
 
 export const homeObjThree = {
   lightBg: true,
   lightText: false,
   lightTextDesc: false,
-  topLine: 'EASY SETUP',
-  headline: 'Super fast and simple on-boarding process',
+  topLine: 'Here to serve you',
+  headline: 'We are thrilled to have you here with us',
   description:
     "Get everything set up and ready in under 10 minutes. All you need to do is add your information and you're ready to go.",
   buttonLabel: 'Start Now',
-  imgStart: 'start',
   buttonColor: 'blue',
-  img: `${Image7}`,
+  imgStart: 'start',
+  img: `${Image3}`,
   alt: 'Vault',
-  url: "/sign-up",
+  url: "/landing-page",
 };
 
 export const homeObjFour = {
   lightBg: false,
   lightText: true,
   lightTextDesc: true,
-  topLine: 'DATA ANALYTICS',
+  topLine: 'your security, our main concern',
   headline: 'Every transaction is stored on our secure cloud database',
   description:
     'Never ever have to worry again about saved receipts. We store your data, so you can access it anytime.',
-  buttonLabel: 'Sign Up Now',
+  buttonLabel: 'Great Offers',
   buttonColor: 'blue',
   imgStart: 'start',
-  img: `${Image8}`,
+  img: `${Image11}`,
   alt: 'Vault',
-  url: "/sign-up",
+  url: "/landing-page",
 };

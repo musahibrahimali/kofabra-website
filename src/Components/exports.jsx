@@ -11,7 +11,7 @@ export { default as LoadAnimation } from './LoadAnimation/LoadAnimation';
 export { default as Request } from './Request/Request';
 
 /* Pages */
-export { Footer, Products, Services, SignUp, Home } from './Pages/pages';
+export { Footer, Products, Services, SignUp, Home, ProfilePage, AboutUs, Landing, HelpPage } from './Pages/pages';
 
 
 

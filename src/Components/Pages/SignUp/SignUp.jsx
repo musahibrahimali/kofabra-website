@@ -1,10 +1,11 @@
 import React from 'react';
-import {HeroSection} from "../../exports";
+import { HeroSection, Navbar } from "../../exports";
 import { homeObjOne, homeObjThree } from './SignUpData';
 
 function SignUp() {
   return (
     <>
+      <Navbar />
       <HeroSection {...homeObjOne} />
       <HeroSection {...homeObjThree} />
     </>

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useStateValue } from '../Provider/StateProvider';
-import { Footer, Home, Services, Products, SignUp } from "../Components/exports";
-import { AboutUs, HelpPage, Landing } from "../Components/Pages/pages";
+import { Footer, Home, Services, Products, SignUp, ProfilePage, AboutUs, HelpPage, Landing } from "../Components/exports";
 import { authentication } from '../Config/FireBase';
 
 function App() {
 
-    const [dispatch] = useStateValue();
+    // eslint-disable-next-line no-unused-vars
+    const [{ user }, dispatch] = useStateValue();
 
     useEffect(() => {
         authentication.onAuthStateChanged((authUser) => {
@@ -37,6 +37,7 @@ function App() {
                     <Route path='/landing-page' exact component={Landing} />
                     <Route path='/about-page' exact component={AboutUs} />
                     <Route path='/help-page' exact component={HelpPage} />
+                    <Route path='/profile-page' exact component={ProfilePage} />
                 </Switch>
                 <Footer />
             </Router>

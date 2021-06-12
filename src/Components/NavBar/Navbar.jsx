@@ -3,9 +3,15 @@ import { Button } from "../exports";
 import { Link } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
+import Avatar from '@material-ui/core/Avatar';
+import { useStateValue } from "../../Provider/StateProvider";
 import "./Navbar.css";
 
 function Navbar() {
+
+  // eslint-disable-next-line no-unused-vars
+  const [{ user }, dispatch] = useStateValue();
+
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -30,6 +36,7 @@ function Navbar() {
       showButton();
       window.addEventListener("resize", showButton);
       removeEventListener();
+      console.log("Usr----", user);
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
   );
@@ -75,8 +82,12 @@ function Navbar() {
             </li>
             <li className="nav-btn">
               {button ? (
-                <Link to="/sign-up" className="btn-link">
-                  <Button buttonStyle="btn--outline">SIGN UP</Button>
+                <Link to={!user ? "/sign-up" : "/profile-page"} className="btn-link">
+                  {
+                    !user ?
+                      <Button buttonStyle="btn--outline">SIGN UP</Button> :
+                      <Avatar />
+                  }
                 </Link>
               ) : (
                 <Link to="/sign-up" className="btn-link">

@@ -1,11 +1,11 @@
-import React, {useCallback, useState} from 'react';
-import {useHistory} from 'react-router-dom';
-import {SignIn, Register} from "../pages";
-import {authentication, database} from "../../../Config/FireBase";
+import React, { useCallback, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { SignIn, Register } from "../pages";
+import { authentication, database } from "../../../Config/FireBase";
 import './styles/Landing.css';
-import {LoadAnimation} from "../../exports";
+import { LoadAnimation } from "../../exports";
 
-function LogLanding () {
+function LogLanding() {
     /* react hooks */
     let browserHistory = useHistory();
     const [loading, setLoading] = useState(false);
@@ -13,6 +13,8 @@ function LogLanding () {
     const [displayName, setDisplayName] = useState('');
     const [displayNameError, setDisplayNameError] = useState('');
     const [email, setEmail] = useState('');
+    const [userPhone, setUserPhone] = useState('');
+    const [userPhoneError, setUserPhoneError] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
@@ -24,6 +26,7 @@ function LogLanding () {
         setEmail('');
         setPassword('');
         setDisplayName('');
+        setUserPhone('');
     }
 
     /* clear all errors */
@@ -31,6 +34,7 @@ function LogLanding () {
         setEmailError('');
         setPasswordError('');
         setDisplayNameError('');
+        setUserPhoneError('');
     }
 
     /* switch login and sign up components */
@@ -49,7 +53,7 @@ function LogLanding () {
             await authentication
                 .signInWithEmailAndPassword(email, password)
                 .catch((error) => {
-                    switch (error.code){
+                    switch (error.code) {
                         case "auth/invalid-email":
                             setLoading(false);
                             setEmailError("Invalid Email");
@@ -72,11 +76,11 @@ function LogLanding () {
                 });
 
             /* navigate to home page */
-            if(email.length > 3){
-                browserHistory.push('/');
+            if (email.length > 3) {
+                browserHistory.replace('/');
             }
             // eslint-disable-next-line
-        },[]
+        }, []
     );
 
     /* handle sign up */
@@ -88,7 +92,7 @@ function LogLanding () {
             const user = await authentication
                 .createUserWithEmailAndPassword(email, password)
                 .catch((error) => {
-                    switch (error.code){
+                    switch (error.code) {
                         case "auth/invalid-email":
                             setLoading(false);
                             setEmailError("Invalid Email");
@@ -106,16 +110,15 @@ function LogLanding () {
                     }
                 });
 
-            await database.ref(`users/${user.user.uid}`).set({
-                userInfo: {
-                    email: email,
-                    displayName: displayName,
-                }
+            await database.ref(`users/${user?.user.uid}`).set({
+                email: email,
+                fullname: displayName,
+                phone: userPhone,
             });
 
             /* navigate to home page */
-            if(email.length > 3){
-                browserHistory.push('/');
+            if (email.length > 3) {
+                browserHistory.replace('/');
             }
             // eslint-disable-next-line
         }, []
@@ -153,6 +156,10 @@ function LogLanding () {
                                         setEmail={setEmail}
                                         password={password}
                                         setPassword={setPassword}
+                                        userPhone={userPhone}
+                                        setUserPhone={setUserPhone}
+                                        userPhoneError={userPhoneError}
+                                        setUserPhoneError={setUserPhoneError}
                                         emailError={emailError}
                                         setEmailError={setEmailError}
                                         passwordError={passwordError}
@@ -173,7 +180,7 @@ function LogLanding () {
                                 onClick={handleSwitch}
                             />
 
-                    </div>
+                        </div>
                 }
             </div>
         </>
@@ -181,7 +188,7 @@ function LogLanding () {
 }
 
 const RightSide = (props) => {
-    const {className, onClick, currentActive} = props;
+    const { className, onClick, currentActive } = props;
     return (
         <div className={className} onClick={onClick}>
             <div className="inner-container">
