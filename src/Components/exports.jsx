@@ -8,7 +8,7 @@ export { default as HeroSection } from './HeroSection/HeroSection';
 export { default as Pricing } from './Pricing/Pricing';
 export { default as ShimmerPage } from './LoadAnimation/ShimmerPage';
 export { default as LoadAnimation } from './LoadAnimation/LoadAnimation';
-export { default as Request } from './Request/Request';
+export { default as RequestPage } from './Request/RequestPage';
 
 /* Pages */
 export { Footer, Products, Services, SignUp, Home, ProfilePage, AboutUs, Landing, HelpPage } from './Pages/pages';

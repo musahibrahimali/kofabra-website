@@ -36,7 +36,6 @@ function Navbar() {
       showButton();
       window.addEventListener("resize", showButton);
       removeEventListener();
-      console.log("Usr----", user);
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
   );

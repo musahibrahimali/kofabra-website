@@ -10,6 +10,8 @@ export { default as Image8 } from './images/svg-8.svg';
 export { default as Image9 } from './images/svg-9.svg';
 export { default as Image10 } from './images/svg-10.svg';
 export { default as Image11 } from './images/svg-11.svg';
+export { default as Image12 } from './images/svg-12.svg';
+export { default as Image13 } from './images/svg-13.svg';
 export { default as loginImage } from './images/login.svg';
 
 /* Logo */

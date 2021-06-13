@@ -17,19 +17,19 @@ export const homeObjOne = {
 };
 
 export const homeObjTwo = {
-  lightBg: false,
-  lightText: true,
-  lightTextDesc: true,
-  topLine: '100% SECURE',
-  headline: 'Stay protected 24/7 anywhere anytime',
+  lightBg: true,
+  lightText: false,
+  lightTextDesc: false,
+  topLine: 'Want to head out?',
+  headline: 'Here for you, your comfort, our concern',
   description:
     'We have you covered no matter where you are located. Over 140 locations worldwide to ensure you have access anytime',
-  buttonLabel: 'Learn More',
+  buttonLabel: 'Leave',
   buttonColor: 'blue',
   imgStart: '',
   img: `${Image5}`,
   alt: 'Vault',
-  url: "/landing-page",
+  url: "/profile-page",
 };
 
 export const homeObjThree = {

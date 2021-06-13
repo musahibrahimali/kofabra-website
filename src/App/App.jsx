@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useStateValue } from '../Provider/StateProvider';
-import { Footer, Home, Services, Products, SignUp, ProfilePage, AboutUs, HelpPage, Landing } from "../Components/exports";
+import { Footer, Home, Services, Products, SignUp, ProfilePage, AboutUs, HelpPage, Landing, RequestPage } from "../Components/exports";
 import { authentication } from '../Config/FireBase';
 
 function App() {
@@ -33,6 +33,7 @@ function App() {
                     <Route path='/' exact component={Home} />
                     <Route path='/services' exact component={Services} />
                     <Route path='/products' exact component={Products} />
+                    <Route path='/request-page' exact component={RequestPage} />
                     <Route path='/sign-up' exact component={SignUp} />
                     <Route path='/landing-page' exact component={Landing} />
                     <Route path='/about-page' exact component={AboutUs} />

@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import GoogleMapReact from 'google-map-react';
-import Marker from './Marker';
-import './RequestMap.css';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+// AIzaSyCXYDgclWjShQXy1e3_edqAZS47X71np30
 
 function RequestMap() {
 
     const [currentPosition, setCurrentPosition] = useState({});
+
+    const mapStyles = {
+        height: "100vh",
+        width: "100%"
+    };
 
     const success = position => {
         const currentPosition = {
@@ -15,39 +19,48 @@ function RequestMap() {
         setCurrentPosition(currentPosition);
     };
 
-    useEffect(() => {
-        navigator.geolocation.getCurrentPosition(success);
-    })
-
-    const defaultProps = {
-        center: {
-            currentPosition
-            // lat: 59.95,
-            // lng: 30.33
+    const locations = [
+        {
+            name: "Home Location",
+            location: {
+                currentPosition
+            },
         },
-        zoom: 14
-    };
+    ];
 
-    const handleApiLoaded = (map, maps) => {
-        // use map and maps objects
+    useEffect(
+        () => {
+            navigator.geolocation.getCurrentPosition(success);
+        }
+    );
+
+    const defaultCenter = {
+        // currentPosition
+        lat: 59.95,
+        lng: 30.33
     };
 
     return (
-        <div className="request__map">
-            <GoogleMapReact
-                bootstrapURLKeys={{ key: "AIzaSyCXYDgclWjShQXy1e3_edqAZS47X71np30" }}
-                defaultCenter={defaultProps.center}
-                defaultZoom={defaultProps.zoom}
-                yesIWantToUseGoogleMapApiInternals
-                onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
-            >
-                <Marker
-                    lat={currentPosition.lat}
-                    lng={currentPosition.lng}
-                    text="Home"
-                />
-            </GoogleMapReact>
-        </div>
+        <>
+            <LoadScript
+                googleMapsApiKey='AIzaSyAMqAaiPohfojuQmHwgBREm9Re-dvumWac'>
+                <GoogleMap
+                    mapContainerStyle={mapStyles}
+                    zoom={14}
+                    center={defaultCenter}
+                >
+                    {
+                        locations.map(
+                            item => {
+                                return (
+                                    <Marker key={item.name} position={item.location} />
+                                )
+                            }
+                        )
+                    }
+                </GoogleMap>
+            </LoadScript>
+        </>
     );
 }
 

@@ -28,13 +28,13 @@ function Register(props) {
     const handleDisplayNameOnChange = (event) => {
         event.preventDefault();
         setDisplayNameError("");
-        setDisplayName(event.target.value.toString().toLowerCase());
+        setDisplayName(event.target.value);
     }
 
     const handleEmailOnChange = (event) => {
         event.preventDefault();
         setEmailError("");
-        setEmail(event.target.value.trim());
+        setEmail(event.target.value);
     }
     const handleUserPhoneOnChange = (event) => {
         event.preventDefault();

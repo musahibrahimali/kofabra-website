@@ -2,8 +2,8 @@ import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { SignIn, Register } from "../pages";
 import { authentication, database } from "../../../Config/FireBase";
-import './styles/Landing.css';
 import { LoadAnimation } from "../../exports";
+import './styles/Landing.css';
 
 function LogLanding() {
     /* react hooks */

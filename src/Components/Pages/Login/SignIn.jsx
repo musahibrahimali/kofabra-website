@@ -1,8 +1,8 @@
 import React from 'react';
 import './styles/style.css';
-import {loginImage} from "../../../assets/AssetExport";
+import { loginImage } from "../../../assets/AssetExport";
 
-function SignIn(props){
+function SignIn(props) {
 
     const {
         email,
@@ -20,7 +20,7 @@ function SignIn(props){
     const handleEmailOnChange = (event) => {
         event.preventDefault();
         setEmailError("");
-        setEmail(event.target.value.trim());
+        setEmail(event.target.value);
     }
 
     const handlePasswordOnChange = (event) => {
@@ -73,7 +73,7 @@ function SignIn(props){
                 </button>
 
                 <p className="btn-log-reg" onClick={handleSwitch}>
-                   Don't have an account? <span className="register-text">Register</span>
+                    Don't have an account? <span className="register-text">Register</span>
                 </p>
             </div>
         </div>
