@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeroSection, Pricing, Navbar } from "../../exports";
+import { HeroSection, Navbar } from "../../exports";
 import { homeObjOne, homeObjTwo, homeObjThree, homeObjFour } from './HomeData';
 
 function Home() {
@@ -9,7 +9,7 @@ function Home() {
       <HeroSection {...homeObjOne} />
       <HeroSection {...homeObjThree} />
       <HeroSection {...homeObjTwo} />
-      <Pricing />
+      {/* <Pricing /> */}
       <HeroSection {...homeObjFour} />
     </>
   );

@@ -12,9 +12,8 @@ export { default as Image10 } from './images/svg-10.svg';
 export { default as Image11 } from './images/svg-11.svg';
 export { default as Image12 } from './images/svg-12.svg';
 export { default as Image13 } from './images/svg-13.svg';
+export { default as Image14 } from './images/svg-14.svg';
 export { default as loginImage } from './images/login.svg';
 
 /* Logo */
-export { default as Logo } from './images/brand-image.png';
-export { default as LogoOne } from './images/brand-image-1.png';
-export { default as LogoTwo } from './images/brand-image-2.png';
+export { default as Logo } from './images/logo512.png';

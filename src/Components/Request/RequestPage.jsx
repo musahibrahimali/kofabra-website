@@ -45,6 +45,7 @@ function RequestPage() {
 
     const clearAllErrors = (event) => {
         event.preventDefault();
+        setErrorMessage("");
     }
 
     // handle trip request

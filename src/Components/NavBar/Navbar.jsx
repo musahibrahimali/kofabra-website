@@ -5,6 +5,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 import Avatar from '@material-ui/core/Avatar';
 import { useStateValue } from "../../Provider/StateProvider";
+import { Logo } from "../../assets/AssetExport";
 import "./Navbar.css";
 
 function Navbar() {
@@ -45,8 +46,7 @@ function Navbar() {
       <nav className="navbar">
         <div className="navbar-container container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            KO<span className="logo-f-text">F</span>ABRA
-            {/*<img src={Logo} alt="brand identity"/>*/}
+            <img src={Logo} alt="brand identity" />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             {click ? (
@@ -81,7 +81,7 @@ function Navbar() {
             </li>
             <li className="nav-btn">
               {button ? (
-                <Link to={!user ? "/sign-up" : "/profile-page"} className="btn-link">
+                <Link to={!user ? "/landing-page" : "/profile-page"} className="btn-link">
                   {
                     !user ?
                       <Button buttonStyle="btn--outline">SIGN UP</Button> :
@@ -89,13 +89,13 @@ function Navbar() {
                   }
                 </Link>
               ) : (
-                <Link to="/sign-up" className="btn-link">
+                <Link to={!user ? "/landing-page" : "/profile-page"} className="btn-link">
                   <Button
                     buttonStyle="btn--outline"
                     buttonSize="btn--mobile"
                     onClick={closeMobileMenu}
                   >
-                    SIGN UP
+                    {!user ? "SIGN UP" : "PROFILE"}
                   </Button>
                 </Link>
               )}

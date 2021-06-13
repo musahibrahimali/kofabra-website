@@ -1,49 +1,48 @@
-import { Image2, Image5, Image7, Image8 } from "../../../assets/AssetExport";
+import { Image12, Image11, Image13, Image4 } from "../../../assets/AssetExport";
 
 export const homeObjOne = {
-  lightBg: false,
-  lightText: true,
-  lightTextDesc: true,
-  topLine: 'Exclusive Access',
-  headline: 'Unlimited Transactions with exclusive discounts',
-  description: 'Get access to well trained, qualified and verified couriers all over the country with exclusive ' +
-    'at the tap of a button. Here to serve you.',
+  lightBg: true,
+  lightText: false,
+  lightTextDesc: false,
+  topLine: 'Delivery service',
+  headline: 'Delivery on the go!',
+  description: 'Enjour swift and reliable delivery service at amazingly affordable prices',
   buttonLabel: 'Get Started',
   buttonColor: 'blue',
   imgStart: '',
-  img: `${Image2}`,
+  img: `${Image12}`,
   alt: 'Credit Card',
   url: "/sign-up",
 };
 
 export const homeObjTwo = {
-  lightBg: false,
-  lightText: true,
-  lightTextDesc: true,
+  lightBg: true,
+  lightText: false,
+  lightTextDesc: false,
   topLine: '100% SECURE',
-  headline: 'Stay protected 24/7 anywhere anytime',
+  headline: 'Your delivery is in safe hands',
   description:
-    'We have you covered no matter where you are located. Over 140 locations worldwide to ensure you have access anytime',
+    'We pride in the professionalism of our riders and partners. With our credibility standard and safety features are committed to quality services',
   buttonLabel: 'Learn More',
   buttonColor: 'blue',
   imgStart: '',
-  img: `${Image5}`,
+  img: `${Image11}`,
   alt: 'Vault',
   url: "/about-page",
 };
 
 export const homeObjThree = {
-  lightBg: true,
-  lightText: false,
-  lightTextDesc: false,
-  topLine: 'EASY SETUP',
-  headline: 'Super fast and simple on-boarding process',
+  lightBg: false,
+  lightText: true,
+  lightTextDesc: true,
+  topLine: 'Make money',
+  headline: 'Transform your dilivery Bussiness',
   description:
-    "Get everything set up and ready in under 10 minutes. All you need to do is add your information and you're ready to go.",
-  buttonLabel: 'Start Now',
+    "Rgister your company with us and skyrocket your earnings.",
+  buttonLabel: 'Register',
   imgStart: 'start',
   buttonColor: 'blue',
-  img: `${Image7}`,
+  img: `${Image13}`,
   alt: 'Vault',
   url: "/sign-up",
 };
@@ -59,7 +58,7 @@ export const homeObjFour = {
   buttonLabel: 'Sign Up Now',
   buttonColor: 'blue',
   imgStart: 'start',
-  img: `${Image8}`,
+  img: `${Image4}`,
   alt: 'Vault',
   url: "/sign-up",
 };

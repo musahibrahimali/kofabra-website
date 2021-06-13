@@ -1,4 +1,4 @@
-import {Image4, Image5, Image7, Image8} from "../../../assets/AssetExport";
+import { Image14, Image11, Image7, Image8 } from "../../../assets/AssetExport";
 
 export const homeObjOne = {
   lightBg: true,
@@ -10,8 +10,8 @@ export const homeObjOne = {
     'We provide worldwide shipping to all countries. If there are any issues, just issue a refund and we will process your request',
   buttonLabel: 'Shop Now',
   buttonColor: 'blue',
-  imgStart: '',
-  img: `${Image4}`,
+  imgStart: 'start',
+  img: `${Image14}`,
   alt: 'Credit Card',
   url: "sign-up",
 };
@@ -21,15 +21,15 @@ export const homeObjTwo = {
   lightText: true,
   lightTextDesc: true,
   topLine: '100% SECURE',
-  headline: 'Stay protected 24/7 anywhere anytime',
+  headline: 'Your delivery is in safe hands',
   description:
-    'We have you covered no matter where you are located. Over 140 locations worldwide to ensure you have access anytime',
+    'We pride in the professionalism of our riders and partners. With our credibility standard and safety features are committed to quality services',
   buttonLabel: 'Learn More',
   buttonColor: 'blue',
   imgStart: '',
-  img: `${Image5}`,
+  img: `${Image11}`,
   alt: 'Vault',
-  url: "sign-up",
+  url: "/about-page",
 };
 
 export const homeObjThree = {

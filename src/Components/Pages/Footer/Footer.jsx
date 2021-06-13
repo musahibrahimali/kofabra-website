@@ -6,6 +6,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import { Logo } from '../../../assets/AssetExport';
 
 function Footer() {
   return (
@@ -65,11 +66,17 @@ function Footer() {
         <div className='social-media-wrap'>
           <div className='footer-logo'>
             <Link to='/' className='social-logo'>
-              KO<span className="logo-f-text">F</span>ABRA
+              {/* KO<span className="logo-f-text">F</span>ABRA */}
+              <div className="footer__logo">
+                <img src={Logo} alt="brand identity" />
+              </div>
             </Link>
           </div>
           <small className='website-rights'>
-            KO<span className="logo-f-text">F</span>ABRA © {new Date().getFullYear()}
+            {/* KO<span className="logo-f-text">F</span>ABRA © {new Date().getFullYear()} */}
+            <div className="copyright__container">
+              <img src={Logo} alt="copyright identity" /> <p> © {new Date().getFullYear()}</p>
+            </div>
           </small>
           <div className='social-icons'>
             <Link

@@ -18,7 +18,7 @@
   color: #fff;
 }
 
-.footer-subscription > p {
+.footer-subscription>p {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
 }
@@ -69,8 +69,41 @@
   margin-bottom: 16px;
 }
 
-.footer-link-items > h2 {
+.footer-link-items>h2 {
   color: #fff;
+}
+
+.footer__logo {
+  color: #fff;
+  justify-self: start;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.footer__logo img {
+  height: 200px;
+  padding: 20px;
+}
+
+.copyright__container {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.copyright__container img {
+  height: 60px;
+  margin-right: 4px;
+  margin-bottom: 5px;
+}
+
+.copyright__container p {
+  font-size: 1.2em;
+  text-align: center;
 }
 
 .footer-link-items a {
