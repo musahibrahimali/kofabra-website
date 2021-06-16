@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { SignIn, Register } from "../pages";
 import { authentication, database } from "../../../Config/FireBase";
@@ -45,84 +45,78 @@ function LogLanding() {
     }
 
     /* handle sign in */
-    const handleSignIn = useCallback(
-        async (event) => {
-            event.preventDefault();
-            clearError();
-            setLoading(true);
-            await authentication
-                .signInWithEmailAndPassword(email, password)
-                .catch((error) => {
-                    switch (error.code) {
-                        case "auth/invalid-email":
-                            setLoading(false);
-                            setEmailError("Invalid Email");
-                            break;
-                        case "auth/user-disabled":
-                            setLoading(false);
-                            setEmailError("Account has been disabled");
-                            break;
-                        case "auth/user-not-found":
-                            setLoading(false);
-                            setEmailError("User not found");
-                            break;
-                        case "auth/wrong-password":
-                            setLoading(false);
-                            setPasswordError("Invalid password");
-                            break;
-                        default:
-                            break;
-                    }
-                });
-
-            /* navigate to home page */
-            if (email.length > 3) {
-                browserHistory.replace('/');
-            }
-            // eslint-disable-next-line
-        }, []
-    );
+    const handleSignIn = async (event) => {
+        event.preventDefault();
+        clearError();
+        setLoading(true);
+        await authentication
+            .signInWithEmailAndPassword(email, password)
+            .then((auth) => {
+                if (auth) {
+                    browserHistory.replace('/');
+                }
+            })
+            .catch((error) => {
+                switch (error.code) {
+                    case "auth/invalid-email":
+                        setLoading(false);
+                        setEmailError("Invalid Email");
+                        console.log(email);
+                        break;
+                    case "auth/user-disabled":
+                        setLoading(false);
+                        setEmailError("Account has been disabled");
+                        break;
+                    case "auth/user-not-found":
+                        setLoading(false);
+                        setEmailError("User not found");
+                        break;
+                    case "auth/wrong-password":
+                        setLoading(false);
+                        setPasswordError("Invalid password");
+                        break;
+                    default:
+                        break;
+                }
+            }, []);
+    }
 
     /* handle sign up */
-    const handleSignUp = useCallback(
-        async (event) => {
-            event.preventDefault();
-            clearError();
-            setLoading(true);
-            const user = await authentication
-                .createUserWithEmailAndPassword(email, password)
-                .catch((error) => {
-                    switch (error.code) {
-                        case "auth/invalid-email":
-                            setLoading(false);
-                            setEmailError("Invalid Email");
-                            break;
-                        case "auth/email-already-in-use":
-                            setLoading(false);
-                            setEmailError("Email in use by another account");
-                            break;
-                        case "auth/weak-password":
-                            setLoading(false);
-                            setPasswordError("Password must be at least 8 characters");
-                            break;
-                        default:
-                            break;
-                    }
-                });
-
-            await database.ref(`users/${user?.user.uid}`).set({
-                email: email,
-                fullname: displayName,
-                phone: userPhone,
-            });
-
-            /* navigate to home page */
-            if (email.length > 3) {
-                browserHistory.replace('/');
-            }
-            // eslint-disable-next-line
-        }, []
-    );
+    const handleSignUp = async (event) => {
+        event.preventDefault();
+        clearError();
+        setLoading(true);
+        const user = await authentication
+            .createUserWithEmailAndPassword(email, password)
+            .then((auth) => {
+                if (auth) {
+                    database.ref(`users/${user?.user.uid}`).set({
+                        email: email,
+                        fullname: displayName,
+                        phone: userPhone,
+                    });
+                    browserHistory.replace('/');
+                }
+            })
+            .catch((error) => {
+                switch (error.code) {
+                    case "auth/invalid-email":
+                        setLoading(false);
+                        setEmailError("Invalid Email");
+                        break;
+                    case "auth/email-already-in-use":
+                        setLoading(false);
+                        setEmailError("Email in use by another account");
+                        break;
+                    case "auth/weak-password":
+                        setLoading(false);
+                        setPasswordError("Password must be at least 8 characters");
+                        break;
+                    default:
+                        break;
+                }
+            }, []);
+    };
 
 
     return (

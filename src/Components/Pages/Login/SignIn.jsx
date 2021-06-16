@@ -20,7 +20,7 @@ function SignIn(props) {
     const handleEmailOnChange = (event) => {
         event.preventDefault();
         setEmailError("");
-        setEmail(event.target.value);
+        setEmail(event.target.value.trim());
     }
 
     const handlePasswordOnChange = (event) => {
@@ -41,12 +41,12 @@ function SignIn(props) {
                 <div className="form">
                     {/* Email Address */}
                     <div className="form-group">
-                        <label htmlFor="username" className="form-label">Email</label>
+                        <label htmlFor="email" className="form-label">Email</label>
                         <input
                             type="text"
                             required
                             value={email}
-                            name="username"
+                            name="email"
                             placeholder="johndoe@email.com"
                             onChange={handleEmailOnChange}
                         />

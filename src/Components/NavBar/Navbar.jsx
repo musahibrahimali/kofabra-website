@@ -6,13 +6,14 @@ import CloseIcon from "@material-ui/icons/Close";
 import Avatar from '@material-ui/core/Avatar';
 import { useStateValue } from "../../Provider/StateProvider";
 import { Logo } from "../../assets/AssetExport";
-import "./Navbar.css";
+import UserInfo from "./UserInfo";
+import "./Styles/Navbar.css";
 
 function Navbar() {
 
   // eslint-disable-next-line no-unused-vars
   const [{ user }, dispatch] = useStateValue();
-
+  const [userDropdown, setUserDropdown] = useState(false);
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -24,6 +25,22 @@ function Navbar() {
       setButton(false);
     } else {
       setButton(true);
+    }
+  };
+
+  const onUserMouseEnter = () => {
+    if (window.innerWidth < 960) {
+      setUserDropdown(false);
+    } else {
+      setUserDropdown(true);
+    }
+  };
+
+  const onUserMouseLeave = () => {
+    if (window.innerWidth < 960) {
+      setUserDropdown(false);
+    } else {
+      setUserDropdown(false);
     }
   };
 
@@ -79,13 +96,20 @@ function Navbar() {
                 Products
               </Link>
             </li>
-            <li className="nav-btn">
+            <li
+              className="nav-btn"
+              onMouseEnter={onUserMouseEnter}
+              onMouseLeave={onUserMouseLeave}
+            >
               {button ? (
                 <Link to={!user ? "/landing-page" : "/profile-page"} className="btn-link">
                   {
                     !user ?
                       <Button buttonStyle="btn--outline">SIGN UP</Button> :
-                      <Avatar />
+                      <div>
+                        <Avatar className="user-icon" />
+                        {userDropdown && <UserInfo />}
+                      </div>
                   }
                 </Link>
               ) : (
