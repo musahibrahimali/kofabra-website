@@ -1,4 +1,9 @@
-# About this repository
+# Demo in pictures
+
+![Screenshot](Screenshot1.png)
+![Screenshot](Screenshot2.png)
+
+## About this repository
 
 This is the official website repository of kofabra courier services in ghana, note that this repo contains some copyrighted content,
 
